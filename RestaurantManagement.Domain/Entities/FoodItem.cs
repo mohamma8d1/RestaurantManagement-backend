@@ -14,4 +14,7 @@ public class FoodItem : BaseEntity
     public string ImageUrl { get; set; } = string.Empty;
     public Guid CategoryId { get; set; }
     public bool IsAvailable { get; set; } = true;
+
+    public virtual Category Category { get; set; } = null!;
+    public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 }
