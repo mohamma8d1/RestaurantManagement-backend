@@ -15,5 +15,6 @@ public class User : BaseEntity
     public string Role { get; set; } = "Customer";
     public bool IsActive { get; set; }
 
-
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 }
