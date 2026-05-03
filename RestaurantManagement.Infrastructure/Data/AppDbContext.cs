@@ -33,5 +33,11 @@ public class AppDbContext : DbContext
 
         modelBuilder.Entity<FoodItem>().HasOne(f => f.Category).WithMany(c => c.FoodItem).HasForeignKey(f => f.CategoryId);
 
+        modelBuilder.Entity<FoodItem>().Property(f => f.Price).HasPrecision(18, 2); 
+
+        modelBuilder.Entity<Order>().Property(o => o.TotalAmount).HasPrecision(18, 2);
+
+        modelBuilder.Entity<OrderItem>().Property(oi => oi.UnitPrice).HasPrecision(18, 2);
+
     }
 }
