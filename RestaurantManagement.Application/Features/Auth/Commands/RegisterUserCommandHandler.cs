@@ -12,4 +12,8 @@ namespace RestaurantManagement.Application.Features.Auth.Commands;
 
 public class RegisterUserCommandHandler(IAppDbContext context, IMapper mapper, IJwtService jwtService) : IRequestHandler<RegisterUserCommand, AuthResponseDto>
 {
+    public Task<AuthResponseDto> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
 }
