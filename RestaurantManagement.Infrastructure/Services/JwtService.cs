@@ -12,15 +12,9 @@ using System.Threading.Tasks;
 
 namespace RestaurantManagement.Infrastructure.Services;
 
-public class JwtService : IJwtService
+public class JwtService(IConfiguration configuration) : IJwtService
 {
-    private readonly IConfiguration _configuration;
-
-    public JwtService(IConfiguration configuration)
-    {
-        _configuration = configuration;
-    }
-
+    
     public string GenerateToken(User user)
     {
         var claims = new List<Claim>
@@ -31,14 +25,14 @@ public class JwtService : IJwtService
                 new Claim(ClaimTypes.Name, user.FullName)
             };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
-            issuer: _configuration["JWT:ValidIssuer"],
-            audience: _configuration["JWT:ValidAudience"],
+            issuer: configuration["JWT:ValidIssuer"],
+            audience: configuration["JWT:ValidAudience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(_configuration["JWT:ExpireMinutes"])),
+            expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(configuration["JWT:ExpireMinutes"])),
             signingCredentials: creds
         );
 
