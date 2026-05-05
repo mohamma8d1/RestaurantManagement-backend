@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using RestaurantManagement.Application.Common.Interfaces;
 using RestaurantManagement.Infrastructure.Data;
 using RestaurantManagement.Infrastructure.Services;
 using System;
