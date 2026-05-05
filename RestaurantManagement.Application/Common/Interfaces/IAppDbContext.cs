@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace RestaurantManagement.Application.Common;
+namespace RestaurantManagement.Application.Common.Interfaces;
 
-public interface IApplicationDbContext
+public interface IAppDbContext
 
 {
     IQueryable<User> Users { get; }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using RestaurantManagement.Application.Common.Interfaces;
 using RestaurantManagement.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RestaurantManagement.Infrastructure.Services;
-
-public interface IJwtService
-{
-    string GenerateToken(User user);
-    string GenerateRefreshToken();
-}
 
 public class JwtService : IJwtService
 {

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using RestaurantManagement.Application.Common.Interfaces;
 using RestaurantManagement.Application.DTOs.Auth;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,6 @@ using System.Threading.Tasks;
 
 namespace RestaurantManagement.Application.Features.Auth.Commands;
 
-public class RegisterUserCommandHandler(AppDbContext context, IMapper mapper, IJwtService jwtService) : IRequestHandler<RegisterUserCommand, AuthResponseDto>
+public class RegisterUserCommandHandler(IAppDbContext context, IMapper mapper, IJwtService jwtService) : IRequestHandler<RegisterUserCommand, AuthResponseDto>
 {
 }
