@@ -14,6 +14,7 @@ public class RegisterUserCommandHandler(IAppDbContext context, IMapper mapper, I
 {
     public Task<AuthResponseDto> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
+        //here i should write my commands
         throw new NotImplementedException();
     }
 }
