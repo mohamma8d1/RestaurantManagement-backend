@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantManagement.Application.Common.Interfaces;
 
-public interface IUnitWorkflow
+public interface IUnitOfWorkflow
 {
     IUserRepository Users { get; }
 
