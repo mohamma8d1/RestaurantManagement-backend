@@ -6,6 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantManagement.Application.Features.Auth.Commands;
+namespace RestaurantManagement.Application.Features.Auth.Commands.Register;
 
 public record RegisterUserCommand(RegisterDto RegisterDto) : IRequest<AuthResponseDto>;

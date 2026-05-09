@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantManagement.Application.Features.Auth.Commands;
+namespace RestaurantManagement.Application.Features.Auth.Commands.Register;
 
 public class RegisterUserCommandHandler(IUnitOfWork unitOfWorkflow, IMapper mapper, IJwtService jwtService) : IRequestHandler<RegisterUserCommand, AuthResponseDto>
 {
