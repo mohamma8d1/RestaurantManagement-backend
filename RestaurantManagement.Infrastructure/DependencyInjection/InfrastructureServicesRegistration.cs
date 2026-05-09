@@ -20,6 +20,7 @@ public static class InfrastructureServicesRegistration
     {
         services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Defualt")));
         services.AddScoped<IJwtService, JwtService>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>

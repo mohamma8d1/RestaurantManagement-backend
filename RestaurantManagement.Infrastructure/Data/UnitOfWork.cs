@@ -4,7 +4,7 @@ using RestaurantManagement.Infrastructure.Data.Repositories;
 
 namespace RestaurantManagement.Infrastructure.Data;
 
-public class UnitOfWork(AppDbContext context) : IUnitOfWorkflow
+public class UnitOfWork(AppDbContext context) : IUnitOfWork
 {
     private IUserRepository? userRepository;
     public IUserRepository Users => userRepository ??= new UserRepository(context);

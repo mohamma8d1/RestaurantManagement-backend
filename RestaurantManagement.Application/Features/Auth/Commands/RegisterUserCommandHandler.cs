@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantManagement.Application.Features.Auth.Commands;
 
-public class RegisterUserCommandHandler(IUnitOfWorkflow unitOfWorkflow, IMapper mapper, IJwtService jwtService) : IRequestHandler<RegisterUserCommand, AuthResponseDto>
+public class RegisterUserCommandHandler(IUnitOfWork unitOfWorkflow, IMapper mapper, IJwtService jwtService) : IRequestHandler<RegisterUserCommand, AuthResponseDto>
 {
     public async Task<AuthResponseDto> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
