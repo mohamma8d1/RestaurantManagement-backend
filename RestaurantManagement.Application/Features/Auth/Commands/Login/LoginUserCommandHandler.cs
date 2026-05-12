@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using RestaurantManagement.Application.Common.Exeption;
 using RestaurantManagement.Application.Common.Interfaces;
 using RestaurantManagement.Application.DTOs.Auth;
 using System;
@@ -16,7 +17,7 @@ public class LoginUserCommandHandler(IUnitOfWork unitWork, IJwtService jwtServic
     {
         var user = await unitWork.Users.GetByEmailAsync(request.LoginDto.Email, cancellationToken);
         if (user is null || !VerifyPassword(request.LoginDto.Password, user.PasswordHash))
-            throw new Exception("Invalid Email or Password");
+            throw new ApiException("Invalid Email or Password", 400);
 
         var token = jwtService.GenerateToken(user);
         var refreshToken = jwtService.GenerateRefreshToken();

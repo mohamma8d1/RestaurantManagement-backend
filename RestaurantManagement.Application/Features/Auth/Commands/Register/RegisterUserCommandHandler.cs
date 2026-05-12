@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using RestaurantManagement.Application.Common.Exeption;
 using RestaurantManagement.Application.Common.Interfaces;
 using RestaurantManagement.Application.DTOs.Auth;
 using RestaurantManagement.Domain.Entities;
@@ -20,7 +21,7 @@ public class RegisterUserCommandHandler(IUnitOfWork unitOfWorkflow, IMapper mapp
         var isEmailUnniqe = await unitOfWorkflow.Users.IsEmailUniqueAsync(request.RegisterDto.Email, cancellationToken);
 
         if (!isEmailUnniqe)
-            throw new Exception("Email already exist!!");
+            throw new ApiException("Email already exist!", 400);
 
         var user = mapper.Map<User>(request.RegisterDto);
         user.PasswordHash = HashPassword(request.RegisterDto.Password);
