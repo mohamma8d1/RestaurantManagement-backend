@@ -6,9 +6,9 @@ using System;
 
 namespace RestaurantManagement.Application.Features.Menu.Queries.FoodItems;
 
-public class FoodItemsQueryHandler(IUnitOfWork unitWork, IMapper mapper) : IRequestHandler<FoodItemsQuery, IReadOnlyList<FoodItemDto>>
+public class GetFoodItemsQueryHandler(IUnitOfWork unitWork, IMapper mapper) : IRequestHandler<GetFoodItemsQuery, IReadOnlyList<FoodItemDto>>
 {
-    public async Task<IReadOnlyList<FoodItemDto>> Handle(FoodItemsQuery request, CancellationToken cancellationToken)
+    public async Task<IReadOnlyList<FoodItemDto>> Handle(GetFoodItemsQuery request, CancellationToken cancellationToken)
     {
         var foodItems = await unitWork.FoodItem.GetAllAsync(cancellationToken);
         return mapper.Map<IReadOnlyList<FoodItemDto>>(foodItems);

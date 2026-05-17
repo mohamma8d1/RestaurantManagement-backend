@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace RestaurantManagement.Application.Features.Menu.Queries.FoodItems;
 
-public record FoodItemsQuery : IRequest<IReadOnlyList<FoodItemDto>>;
+public record GetFoodItemsQuery : IRequest<IReadOnlyList<FoodItemDto>>;
 
