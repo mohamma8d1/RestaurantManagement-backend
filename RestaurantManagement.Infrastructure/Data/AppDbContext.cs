@@ -39,5 +39,7 @@ public class AppDbContext : DbContext
 
         modelBuilder.Entity<OrderItem>().Property(oi => oi.UnitPrice).HasPrecision(18, 2);
 
+        modelBuilder.Entity<FoodItem>().HasQueryFilter(f => !f.IsDeleted);
+
     }
 }
