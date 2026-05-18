@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantManagement.Application.DTOs.Menu;
 using RestaurantManagement.Application.Features.Menu.Command.FoodItems;
+using RestaurantManagement.Application.Features.Menu.Command.UpdateFoodItems;
 using RestaurantManagement.Application.Features.Menu.Queries.FoodItems;
 
 namespace RestaurantManagement.API.Controllers;
@@ -26,6 +27,14 @@ public class MenuController(IMediator mediator) : ControllerBase
     public async Task<IActionResult> CreateFoodItem(CreateFoodItemDto dto)
     {
         var result = await mediator.Send(new CreateFoodItemCommand(dto));
+        return Ok(result);
+    }
+
+    [HttpPut("fooditems")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> UpdateFoodItem(UpdateFoodItemDto dto)
+    {
+        var result = await mediator.Send(new UpdateFoodItemCommand(dto));
         return Ok(result);
     }
 
