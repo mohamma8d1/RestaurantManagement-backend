@@ -9,7 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplicationServices();
 
-builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+builder.Services.AddAutoMapper(cfg =>
+{
+    cfg.AddMaps(typeof(AutoMapperProfile).Assembly);
+});
+
+
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
@@ -48,8 +53,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
