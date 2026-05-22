@@ -1,9 +1,15 @@
-using Microsoft.Extensions.Options;
+using AutoMapper;
 using Microsoft.OpenApi;
 using RestaurantManagement.API.Middlewares;
+using RestaurantManagement.Application;
+using RestaurantManagement.Application.Mappings;
 using RestaurantManagement.Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApplicationServices();
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
