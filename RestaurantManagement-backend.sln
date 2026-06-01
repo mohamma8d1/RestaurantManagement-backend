@@ -15,6 +15,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManagement.API", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{CAE4E3D0-FC48-4719-B180-2CF654EB3938}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{ECDBDC5D-12B1-4EE5-AD2D-1BF72D012D8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{CFB529A7-684A-4042-A8D6-F5F8EDA9CE23}"
+	ProjectSection(SolutionItems) = preProject
+		ci.yml = ci.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +57,7 @@ Global
 		{B22E05B6-9E50-4FC5-ABF0-4EF2526D1ACB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{77360555-AED5-4807-A519-42B443F3F8E9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{454C4B62-8B89-4664-8003-F26BBE6C85D8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{CFB529A7-684A-4042-A8D6-F5F8EDA9CE23} = {ECDBDC5D-12B1-4EE5-AD2D-1BF72D012D8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82BF3757-CA52-420E-9B93-39A034C3BFE5}
