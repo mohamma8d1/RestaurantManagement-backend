@@ -83,7 +83,7 @@ public class LoginUserCommandHandlerTests
             .Setup(r => r.GetByEmailAsync(user.Email, It.IsAny<CancellationToken>()))
             .ReturnsAsync(user);
 
-        _jwtService.Setup(j => j.GenerateToken(user)).Returns("sa-token");
+        _jwtService.Setup(j => j.GenerateToken(user)).Returns("moke-token");
         _jwtService.Setup(j => j.GenerateRefreshToken()).Returns("mock-refresh");
 
         var command = new LoginUserCommand(new LoginDto
