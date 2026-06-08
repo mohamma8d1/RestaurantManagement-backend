@@ -3,7 +3,7 @@
 //  xUnit + Moq + FluentAssertions
 // ============================================================
 //
-//  پکیج‌های لازم:
+//  packages:
 //    dotnet add package Moq
 //    dotnet add package FluentAssertions
 //    dotnet add package Microsoft.Extensions.Configuration
@@ -83,7 +83,7 @@ public class LoginUserCommandHandlerTests
             .Setup(r => r.GetByEmailAsync(user.Email, It.IsAny<CancellationToken>()))
             .ReturnsAsync(user);
 
-        _jwtService.Setup(j => j.GenerateToken(user)).Returns("moke-token");
+        _jwtService.Setup(j => j.GenerateToken(user)).Returns("mock-token");
         _jwtService.Setup(j => j.GenerateRefreshToken()).Returns("mock-refresh");
 
         var command = new LoginUserCommand(new LoginDto
@@ -251,7 +251,7 @@ public class RegisterUserCommandHandlerTests
 
         _userRepo
             .Setup(r => r.IsEmailUniqueAsync(dto.Email, It.IsAny<CancellationToken>()))
-            .ReturnsAsync(false);   // ← ایمیل تکراری
+            .ReturnsAsync(false);
 
         var command = new RegisterUserCommand(dto);
         var handler = CreateHandler();
@@ -444,7 +444,7 @@ public class JwtServiceTests
         var config = new ConfigurationBuilder()
             .AddInMemoryCollection(new Dictionary<string, string?>
             {
-                ["JWT:Secret"] = "SuperSecretKey1234567890ABCDEF!!",  // حداقل 32 کاراکتر
+                ["JWT:Secret"] = "SuperSecretKey1234567890ABCDEF!!",
                 ["JWT:ValidIssuer"] = "TestIssuer",
                 ["JWT:ValidAudience"] = "TestAudience",
                 ["JWT:ExpireMinutes"] = "60"
@@ -494,6 +494,6 @@ public class JwtServiceTests
 
         // Assert
         token1.Should().NotBeNullOrEmpty();
-        token1.Should().NotBe(token2);   // هر بار یکتا باشد
+        token1.Should().NotBe(token2);  
     }
 }
