@@ -127,7 +127,7 @@ public class LoginUserCommandHandlerTests
         var command = new LoginUserCommand(new LoginDto
         {
             Email = user.Email,
-            Password = "WrongPassword"   // ← اشتباه
+            Password = "WrongPassword"
         });
 
         var handler = CreateHandler();
