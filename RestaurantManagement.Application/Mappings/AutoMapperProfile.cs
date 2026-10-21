@@ -16,6 +16,7 @@ public class AutoMapperProfile : Profile
         .ForMember(dest => dest.IsActive, opt => opt.MapFrom(src => true));
     CreateMap<CreateCategoryDto, Category>();
     CreateMap<Category, CategoryDto>();
+    CreateMap<UpdateCategoryDto, Category>();
     CreateMap<FoodItem, FoodItemDto>().ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
     CreateMap<CreateFoodItemDto, FoodItem>();
     CreateMap<UpdateFoodItemDto, FoodItem>();
