@@ -14,12 +14,9 @@ builder.Services.AddAutoMapper(cfg =>
     cfg.AddMaps(typeof(AutoMapperProfile).Assembly);
 });
 
-
-
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddControllers();
-
 
 //Add swagger
 builder.Services.AddEndpointsApiExplorer();

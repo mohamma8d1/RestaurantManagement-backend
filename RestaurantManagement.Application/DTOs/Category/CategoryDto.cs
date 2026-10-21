@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantManagement.Application.DTOs.Menu;
+namespace RestaurantManagement.Application.DTOs.Category;
 
 public class CategoryDto
 {
